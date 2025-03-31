@@ -10,7 +10,6 @@ namespace Fun_with_2D_Arrays
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
             //for Better updating the user choises and Grid Appearance
             const string USERGRIDCHOISE1 = "S";
             const string USERGRIDCHOISE2 = "N";
@@ -21,10 +20,6 @@ namespace Fun_with_2D_Arrays
 
             Console.OutputEncoding = Encoding.UTF8;
 
-=======
-            Console.OutputEncoding = Encoding.UTF8;
-
->>>>>>> 9c9207e945b768708d32bde0268377ff62297b02
             // User inputs and choises
             Console.WriteLine("Chose bettwen numbers and Symbols: S= symbol, N= Numbers");
             string userChoiseInput = Console.ReadLine().ToUpper();
@@ -33,7 +28,6 @@ namespace Fun_with_2D_Arrays
             int rows = int.Parse(Console.ReadLine());
             Console.WriteLine("Colums:");
             int cols = int.Parse(Console.ReadLine());
-<<<<<<< HEAD
 
             //2D Array for the Visualisation
             string[,] itemsGrid = new string[rows, cols];
@@ -43,14 +37,6 @@ namespace Fun_with_2D_Arrays
             // string List with UTF8 symbols
             List<string> items = new List<string>();
 
-=======
-            int[,] numbers = new int[rows, cols];
-            int number = 9;
-            Random rndNumbers = new Random();
-
-            // string List with UTF8 symbols
-            List<string> items = new List<string>();
->>>>>>> 9c9207e945b768708d32bde0268377ff62297b02
             string apple = "\U0001F34E";
             string banana = "\U0001F34C";
             string strawbery = "\U0001F353";
@@ -58,11 +44,7 @@ namespace Fun_with_2D_Arrays
             string kirschen = "\U0001F352";
             string birne = "\U0001F350";
             string trauben = "\U0001F347";
-<<<<<<< HEAD
             // Add to List(items)
-=======
-
->>>>>>> 9c9207e945b768708d32bde0268377ff62297b02
             items.Add(apple);
             items.Add(banana);
             items.Add(orange);
@@ -70,7 +52,6 @@ namespace Fun_with_2D_Arrays
             items.Add(birne);
             items.Add(kirschen);
             items.Add(trauben);
-<<<<<<< HEAD
             int indexListItems = items.Count;
 
             Random gridItems = new Random();
@@ -102,17 +83,8 @@ namespace Fun_with_2D_Arrays
             Console.WriteLine(FRAMINGGRIDCORNERS);
 
             for (int i = 0; i < rows; i++)
-=======
-
-            int [,] symbols = new int [rows, cols];
-            Random rndItems = new Random();
-
-            switch (userChoiseInput)
->>>>>>> 9c9207e945b768708d32bde0268377ff62297b02
             {
-                case "N":
 
-<<<<<<< HEAD
                 for (int j = 0; j < cols; j++)
                 {
                     itemsGrid[i, j] = switchLists[gridItems.Next(switchIndexLists)];
@@ -140,86 +112,6 @@ namespace Fun_with_2D_Arrays
                     }
                     Console.WriteLine(FRAMINGGRIDCORNERS);
                 }
-=======
-                    for (int i = 0; i < cols; i++)
-                    {
-                        Console.Write("+-");
-                    }
-                    Console.WriteLine("+");
-
-                    for (int i = 0; i < rows; i++)
-                    {
-
-                        for (int j = 0; j < cols; j++)
-                        {
-                            numbers[i, j] = rndNumbers.Next(number);
-
-                            Console.Write("|" + numbers[i, j]);
-
-                        }
-                        Console.WriteLine("|");
-                        if (rows != cols)
-                        {
-                            for (int c = 0; c < cols; c++)
-                            {
-                                Console.Write("+-");
-
-                            }
-                            Console.WriteLine("+");
-                        }
-                        else
-                        {
-                            for (int r = 0; r < rows; r++)
-                            {
-                                Console.Write("+-");
-
-                            }
-                            Console.WriteLine("+");
-                        }
-
-                    }
-                    break;
-
-                case "S":
-
-                    for (int i = 0; i < cols; i++)
-                    {
-                        Console.Write("+--");
-                    }
-                    Console.WriteLine("+");
-
-                    for (int i = 0; i < rows; i++)
-                    {
-
-                        for (int j = 0; j < cols; j++)
-                        {
-                            symbols[i, j] = rndItems.Next(items.Count);
-
-                            Console.Write("|" + items[symbols[i, j]]);
-
-                        }
-                        Console.WriteLine("| ");
-                        if (rows != cols)
-                        {
-                            for (int c = 0; c < cols; c++)
-                            {
-                                Console.Write("+--");
-
-                            }
-                            Console.WriteLine("+");
-                        }
-                        else
-                        {
-                            for (int r = 0; r < rows; r++)
-                            {
-                                Console.Write("+--");
-
-                            }
-                            Console.WriteLine("+");
-                        }
-                    }
-                    break;
->>>>>>> 9c9207e945b768708d32bde0268377ff62297b02
 
 
             }
