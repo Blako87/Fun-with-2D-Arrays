@@ -11,17 +11,19 @@ namespace Fun_with_2D_Arrays
         static void Main(string[] args)
         {
             //for Better updating the user choises and Grid Appearance
-            const string USERGRIDCHOISE1 = "S";
-            const string USERGRIDCHOISE2 = "N";
-            const string FRAMINGGRIDSYMBOLS = "+--";
-            const string FRAMINGGRIDNUMBERS = "+-";
-            const string FRAMINGGRIDCORNERS = "+";
-            const string FRAMINGGRIDVERTICALLINES = "|";
+            const string USER_GRID_CHOISE_1 = "S";
+            const string USER_GRID_CHOISE_2 = "N";
+            const string USER_GRID_CHOISE_3 = "C";
+            string framingGridSymbols = "+--";
+            string framingGridNumbers = "+-";
+            string framingGridCorners = "+";
+            string framingGridVerticalLines = "|";
+
 
             Console.OutputEncoding = Encoding.UTF8;
 
             // User inputs and choises
-            Console.WriteLine("Chose bettwen numbers and Symbols: S= symbol, N= Numbers");
+            Console.WriteLine("Chose bettwen numbers and Symbols: S= symbol, N= Numbers, C=Chess");
             string userChoiseInput = Console.ReadLine().ToUpper();
             Console.WriteLine("How manny Rows and Colums do you want to Have?:");
             Console.WriteLine("Rows:");
@@ -57,64 +59,92 @@ namespace Fun_with_2D_Arrays
             Random gridItems = new Random();
             int switchIndexLists = 0;
             List<string> switchLists = new List<string>();
+            // Case 3 variables for Chessgrid printing
+            string chessGridSymbol1 = "X";
+            string chessGridSymbol2 = "O";
+            bool chessGrid = true;
+
+
             //gridframes will be updatet on the user choise
             string gridFrames = "-";
             // User case choise and variables for the grid output and displyFrames
             switch (userChoiseInput)
             {
-                case USERGRIDCHOISE1:
+                case USER_GRID_CHOISE_1:
                     switchLists = items;
                     switchIndexLists = indexListItems;
-                    gridFrames = FRAMINGGRIDSYMBOLS;
+                    gridFrames = framingGridSymbols;
                     break;
-                case USERGRIDCHOISE2:
+                case USER_GRID_CHOISE_2:
                     switchLists = numbers;
                     switchIndexLists = indexListNumbers;
-                    gridFrames = FRAMINGGRIDNUMBERS;
+                    gridFrames = framingGridNumbers;
                     break;
+                case USER_GRID_CHOISE_3:
+                    switchLists.Add(chessGridSymbol1);
+                    switchLists.Add(chessGridSymbol2);
+                    switchIndexLists = 2;
+                    gridFrames = "";
+                    framingGridCorners = "";
+                    framingGridVerticalLines = "";
+                    chessGrid = false;
+                    break;
+
+
             }
 
             // Nested Loops for displayng the 2D Array as Matrix 
-
-            for (int i = 0; i < cols; i++)
+            if (chessGrid)
             {
-                Console.Write(gridFrames);
+                for (int i = 0; i < cols; i++)
+                {
+                    Console.Write(gridFrames);
+                }
+                Console.WriteLine(framingGridCorners);
             }
-            Console.WriteLine(FRAMINGGRIDCORNERS);
+
 
             for (int i = 0; i < rows; i++)
             {
 
                 for (int j = 0; j < cols; j++)
                 {
-                    itemsGrid[i, j] = switchLists[gridItems.Next(switchIndexLists)];
+                    if (chessGrid)
+                    {
+                        itemsGrid[i, j] = switchLists[gridItems.Next(switchIndexLists)];
+                        Console.Write(framingGridVerticalLines + itemsGrid[i, j]);
+                    }
+                    else
+                    {
+                        itemsGrid[i, j] = switchLists[(i + j) % 2];// Modulo Math for rest division (0,1)
+                        Console.Write(itemsGrid[i, j]);
+                    }
 
-
-                    Console.Write(FRAMINGGRIDVERTICALLINES + itemsGrid[i, j]);
 
                 }
-                Console.WriteLine(FRAMINGGRIDVERTICALLINES);
-                if (rows != cols)
+                Console.WriteLine(framingGridVerticalLines);
+                if (rows != cols && chessGrid)
                 {
                     for (int c = 0; c < cols; c++)
                     {
                         Console.Write(gridFrames);
 
                     }
-                    Console.WriteLine(FRAMINGGRIDCORNERS);
+                    Console.WriteLine(framingGridCorners);
                 }
-                else
+                if (rows == cols && chessGrid)
                 {
                     for (int r = 0; r < rows; r++)
                     {
                         Console.Write(gridFrames);
 
                     }
-                    Console.WriteLine(FRAMINGGRIDCORNERS);
+                    Console.WriteLine(framingGridCorners);
                 }
 
 
             }
+
         }
     }
 }
