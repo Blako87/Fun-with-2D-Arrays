@@ -14,6 +14,8 @@ namespace Fun_with_2D_Arrays
             const string USER_GRID_CHOISE_1 = "S";
             const string USER_GRID_CHOISE_2 = "N";
             const string USER_GRID_CHOISE_3 = "C";
+            const string CHESS_GRID_SYMBOLS_1 = "X";
+            const string CHESS_GRID_SYMBOLS_2 = "O";
             string framingGridSymbols = "+--";
             string framingGridNumbers = "+-";
             string framingGridCorners = "+";
@@ -23,7 +25,7 @@ namespace Fun_with_2D_Arrays
             Console.OutputEncoding = Encoding.UTF8;
 
             // User inputs and choises
-            Console.WriteLine("Chose bettwen numbers and Symbols: S= symbol, N= Numbers, C=Chess");
+            Console.WriteLine($"Chose bettwen numbers and Symbols: {USER_GRID_CHOISE_1}= symbol, {USER_GRID_CHOISE_2}= Numbers, {USER_GRID_CHOISE_3}=Chess");
             string userChoiseInput = Console.ReadLine().ToUpper();
             Console.WriteLine("How manny Rows and Colums do you want to Have?:");
             Console.WriteLine("Rows:");
@@ -60,8 +62,7 @@ namespace Fun_with_2D_Arrays
             int switchIndexLists = 0;
             List<string> switchLists = new List<string>();
             // Case 3 variables for Chessgrid printing
-            string chessGridSymbol1 = "X";
-            string chessGridSymbol2 = "O";
+
             bool chessGrid = true;
 
 
@@ -81,8 +82,8 @@ namespace Fun_with_2D_Arrays
                     gridFrames = framingGridNumbers;
                     break;
                 case USER_GRID_CHOISE_3:
-                    switchLists.Add(chessGridSymbol1);
-                    switchLists.Add(chessGridSymbol2);
+                    switchLists.Add(CHESS_GRID_SYMBOLS_1);
+                    switchLists.Add(CHESS_GRID_SYMBOLS_2);
                     switchIndexLists = 2;
                     gridFrames = "";
                     framingGridCorners = "";
